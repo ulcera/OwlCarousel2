@@ -624,8 +624,11 @@
 	 * @protected
 	 */
 	Owl.prototype.onThrottledResize = function() {
-		window.clearTimeout(this.resizeTimer);
-		this.resizeTimer = window.setTimeout(this._handlers.onResize, this.settings.responsiveRefreshRate);
+		if(this.e)
+		{
+			window.clearTimeout(this.resizeTimer);
+			this.resizeTimer = window.setTimeout(this._handlers.onResize, this.settings.responsiveRefreshRate);
+		}
 	};
 
 	/**
